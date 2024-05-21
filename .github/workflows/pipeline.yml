@@ -7,6 +7,14 @@ on:
       - develop
 jobs:
 
+  sonar:
+    name: SonarQube Scan
+    run: |
+          chmod +x gradlew
+          ./gradlew build sonar
+    env:
+      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
   ktlintCheck:
     name: check format kotlin
     uses: ./.github/workflows/ktlint_check_pipeline.yml

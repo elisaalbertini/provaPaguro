@@ -8,12 +8,13 @@ on:
 jobs:
 
   sonar:
-    name: SonarQube Scan
-    run: |
+    steps:
+      name: SonarQube Scan
+      run: |
           chmod +x gradlew
           ./gradlew build sonar
-    env:
-      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      env:
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
   ktlintCheck:
     name: check format kotlin

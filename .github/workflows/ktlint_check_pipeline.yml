@@ -15,6 +15,3 @@ jobs:
         run: |
           chmod +x gradlew
           ./gradlew ktlintCheck
-        with:
-          args: >
-            -Dsonar.gradle.skipCompile=true

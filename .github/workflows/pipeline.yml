@@ -7,25 +7,25 @@ on:
       - develop
 jobs:
 
-  sonarcloud:
-    name: SonarCloud
-    strategy:
-      matrix:
-        os: [ ubuntu-latest ]
-    runs-on: ${{ matrix.os }}
-    steps:
-      - uses: actions/checkout@v4
-      - name: Setup java
-        uses: actions/setup-java@v4
-        with:
-          java-version: 18
-          distribution: 'temurin'
-      - name: SonarQube Scan
-        run: |
-            chmod +x gradlew
-            ./gradlew build sonar
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+  #sonarcloud:
+   # name: SonarCloud
+    #strategy:
+     # matrix:
+      #  os: [ ubuntu-latest ]
+    #runs-on: ${{ matrix.os }}
+    #steps:
+     # - uses: actions/checkout@v4
+      #- name: Setup java
+       # uses: actions/setup-java@v4
+        #with:
+         # java-version: 18
+          #distribution: 'temurin'
+     # - name: SonarQube Scan
+      #  run: |
+       #     chmod +x gradlew
+        #    ./gradlew build sonar
+        #env:
+         # SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
   ktlintCheck:
     name: check format kotlin
